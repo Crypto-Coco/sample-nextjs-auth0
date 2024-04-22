@@ -1,15 +1,21 @@
 'use client';
-
 import React from 'react';
 import { Row, Col } from 'reactstrap';
 import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client';
-
 import Loading from '../../components/Loading';
 import ErrorMessage from '../../components/ErrorMessage';
 import Highlight from '../../components/Highlight';
+import { usePrivy } from '@privy-io/react-auth';
 
 function Profile() {
   const { user, isLoading } = useUser();
+  const { ready, authenticated, createWallet, getAccessToken } = usePrivy();
+
+  // let accessToken = null;
+  // if (ready && authenticated) {
+  //   accessToken = await getAccessToken();
+  // }
+  // console.log('accessToken', accessToken);
 
   return (
     <>
@@ -32,6 +38,9 @@ function Profile() {
                 {user.email}
               </p>
             </Col>
+            <button disabled={!(ready && authenticated)} onClick={createWallet}>
+              Create a wallet
+            </button>
           </Row>
           <Row data-testid="profile-json">
             <Highlight>{JSON.stringify(user, null, 2)}</Highlight>
@@ -44,5 +53,5 @@ function Profile() {
 
 export default withPageAuthRequired(Profile, {
   onRedirecting: () => <Loading />,
-  onError: error => <ErrorMessage>{error.message}</ErrorMessage>
+  onError: error => <ErrorMessage>{error.message}</ErrorMessage>,
 });
