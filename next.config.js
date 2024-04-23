@@ -3,6 +3,5 @@ module.exports = {
   // Add support for server actions
   experimental: {
     serverActions: true,
-  },
-  ...insertTheRestOfYourNextConfig,
+  }
 };
