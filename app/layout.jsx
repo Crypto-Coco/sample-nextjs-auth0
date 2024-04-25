@@ -5,7 +5,6 @@ import { Container } from 'reactstrap';
 import Footer from '../components/Footer';
 import React from 'react';
 import { UserProvider } from '@auth0/nextjs-auth0/client';
-import EmbeddedWalletProvider from './providers/EmbeddedWalletProvider';
 
 export default function RootLayout({ children }) {
   return (
@@ -24,13 +23,11 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <UserProvider>
-          <EmbeddedWalletProvider>
-            <main id="app" className="d-flex flex-column h-100" data-testid="layout">
-              <NavBar />
-              <Container className="flex-grow-1 mt-5">{children}</Container>
-              <Footer />
-            </main>
-          </EmbeddedWalletProvider>
+          <main id="app" className="d-flex flex-column h-100" data-testid="layout">
+            <NavBar />
+            <Container className="flex-grow-1 mt-5">{children}</Container>
+            <Footer />
+          </main>
         </UserProvider>
       </body>
     </html>
