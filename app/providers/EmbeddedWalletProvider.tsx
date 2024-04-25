@@ -6,7 +6,6 @@ import {PropsWithChildren} from 'react';
 type Props = PropsWithChildren<{}>;
 
 const EmbeddedWalletProvider: React.FC<Props> = ({ children }) => {
-  console.log('@@@process.env.NEXT_PUBLIC_PRIVY_APP_ID', process.env.NEXT_PUBLIC_PRIVY_APP_ID);
   return (
     <PrivyProvider
       appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID || ''}
