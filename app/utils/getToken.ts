@@ -9,7 +9,3 @@ export async function getToken() {
     return undefined;
   }
 }
-
-getToken().then((token) => {
-  console.log('@@@Token:', token);
-});

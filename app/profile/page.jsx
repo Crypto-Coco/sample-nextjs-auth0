@@ -14,8 +14,6 @@ function Profile() {
   const [accessToken, setAccessToken] = useState(null);
 
   useEffect(() => {
-    console.log('@@@ready=', ready);
-    console.log('@@@authenticated=', authenticated);
     const fetchAccessToken = async () => {
       if (ready && authenticated) {
         const token = await getAccessToken();
@@ -25,8 +23,6 @@ function Profile() {
 
     fetchAccessToken();
   }, [ready, authenticated, getAccessToken]);
-
-  console.log('@@@accessToken=', accessToken);
 
   return (
     <>
