@@ -1,3 +1,7 @@
 module.exports = {
-  poweredByHeader: false
+  poweredByHeader: false,
+  // Add support for server actions
+  experimental: {
+    serverActions: true,
+  }
 };
