@@ -24,6 +24,9 @@ function Profile() {
     fetchAccessToken();
   }, [ready, authenticated, getAccessToken]);
 
+  console.log("@@@ready=", ready)
+  console.log("@@@authenticated=", authenticated)
+
   return (
     <>
       <EmbeddedWalletProvider>
